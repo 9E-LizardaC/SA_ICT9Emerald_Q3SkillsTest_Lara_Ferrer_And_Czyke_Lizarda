@@ -34,7 +34,7 @@
                     Profile Image
                 </div>
                 <input type="file">
-                <button class="upload-btn">Upload Photo</button>
+                <button class="upload-btn" onclick="">Upload Photo</button>
             </div>
 
             <div class="right-panel">
@@ -44,9 +44,9 @@
                     Please fill out all required fields in the registration form with accurate information.
                 </p>
 
-                <form>
+                <form id="form">
                     <label>First Name</label>
-                    <input type="text">
+                    <input type="text" id="FirstName" name="FirstName">
 
                     <label>Last Name</label>
                     <input type="text">
@@ -54,7 +54,7 @@
                     <div class="row">
                         <div>
                             <label>Age</label>
-                            <input type="number">
+                            <input type="number" id="age" name="age">
                         </div>
                         <div>
                             <label>Contact Number</label>
@@ -71,10 +71,11 @@
                     <label>Enter your password</label>
                     <input type="password">
 
-                    <div class="terms">
+                    <div style="text-align:center" class="terms">
                         <input type="checkbox">
                         <span>I accept the Terms of Use and Privacy Policy</span>
                     </div>
+                    <br>
 
                     <button class="submit-btn">Create my account</button>
                 </form>
@@ -82,7 +83,28 @@
 
         </div>
     </section>
+    <br>
+    <br>
 
+    <script>
+   document.getElementById("form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      const FirstName = document.getElementById("FirstName").value;
+         if (FirstName === "") {
+            alert("You're missing your first name!");
+         }  
+
+      const age = Number(document.getElementById("age").value);
+      if (age < 13) {
+         alert("Oops! You need to be 13 years or older to make an account!");
+      }
+      if (age>120) {
+            alert("Please enter a valid age.");
+      }
+    });
+
+    </script>
     <footer>
         Student Name | Grade & Section ©2026
     </footer>
